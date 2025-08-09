@@ -17,9 +17,11 @@ import { Feather, Octicons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
 import Loading from "../components/Loading";
 import ScrollableKeyboardView from "../components/ScrollableKeyboardView";
+import { useAuth } from "../context/authContext";
 
 export default function SignUp() {
   const router = useRouter();
+  const { register } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const emailRef = useRef("");
@@ -37,8 +39,20 @@ export default function SignUp() {
       Alert.alert("Sign Up", "Fields are empty!!");
       return;
     }
+    setLoading(true);
 
-    // Register Process
+    let response = await register(
+      emailRef.current,
+      passwordRef.current,
+      usernameRef.current,
+      profileRef.current
+    );
+    setLoading(false);
+
+    // console.log("Response from SignUp: ", response);
+    if (!response.success) {
+      Alert.alert("Sign Up", response.msg);
+    }
   };
 
   return (

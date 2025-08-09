@@ -17,9 +17,11 @@ import { Octicons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
 import Loading from "../components/Loading";
 import ScrollableKeyboardView from "../components/ScrollableKeyboardView";
+import { useAuth } from "../context/authContext";
 
 export default function SignIn() {
   const router = useRouter();
+  const {login} = useAuth();
   const [loading, setLoading] = useState(false);
 
   const emailRef = useRef("");
@@ -31,6 +33,13 @@ export default function SignIn() {
       return;
     }
 
+    setLoading(true);
+    const response = await login(emailRef.current, passwordRef.current);
+    setLoading(false);
+
+    if(!response.success){
+      Alert.alert('Sign In', response.msg);
+    }
     // Login Process
   };
 
