@@ -1,15 +1,84 @@
-import { Stack } from "expo-router";
-import ChatListHeader from "../../components/ChatListHeader";
+import { Text } from "react-native"; // Make sure to import Text
+import { Tabs } from "expo-router";
+import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 export default function AppLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="chatlist"
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#494cd6ff",
+        tabBarInactiveTintColor: "#8a8bd4ff",
+        tabBarStyle: {
+          height: 100, // Or use paddingVertical
+          paddingBottom: 10,
+          paddingTop: 10,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="chats"
         options={{
-          header: () => <ChatListHeader />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="chat" size={25} color={color} />
+          ),
+          // Use tabBarLabel to render the title dynamically
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                color: color,
+                fontSize: 15,
+                paddingTop: 5,
+                fontWeight: focused ? "bold" : "500", // Dynamic fontWeight
+              }}
+            >
+              Chats
+            </Text>
+          ),
         }}
       />
-    </Stack>
+      <Tabs.Screen
+        name="updates"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="update" size={25} color={color} />
+          ),
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                color: color,
+                fontSize: 15,
+                paddingTop: 5,
+                fontWeight: focused ? "bold" : "500",
+              }}
+            >
+              Updates
+            </Text>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="phone"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="phone" size={25} color={color} />
+          ),
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                color: color,
+                fontSize: 15,
+                paddingTop: 5,
+                fontWeight: focused ? "bold" : "500",
+              }}
+            >
+              Calls
+            </Text>
+          ),
+        }}
+      />
+    </Tabs>
   );
 }

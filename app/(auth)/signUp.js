@@ -15,9 +15,9 @@ import {
 import LottieView from "lottie-react-native";
 import { Feather, Octicons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
-import Loading from "../components/Loading";
-import ScrollableKeyboardView from "../components/ScrollableKeyboardView";
-import { useAuth } from "../context/authContext";
+import Loading from "../../components/Loading";
+import ScrollableKeyboardView from "../../components/ScrollableKeyboardView";
+import { useAuth } from "../../context/authContext";
 
 export default function SignUp() {
   const router = useRouter();
@@ -66,7 +66,7 @@ export default function SignUp() {
 
         <View className="items-center">
           <LottieView
-            source={require("../assets/animations/Id authentication.json")}
+            source={require("../../assets/animations/Id authentication.json")}
             autoPlay
             loop
             style={{ width: 200, height: 200 }}
@@ -172,7 +172,7 @@ export default function SignUp() {
               <Pressable
                 onPress={() => {
                   console.log("Link to SignIn Pressed");
-                  router.push("signIn");
+                  router.replace("signIn");
                 }}
               >
                 <Text

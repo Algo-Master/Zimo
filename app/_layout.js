@@ -17,10 +17,10 @@ const MainLayout = () => {
 
     if (isAuthenticated && !inApp) {
       // redirect to home
-      router.replace("chatlist");
+      router.replace("/(app)/chats/chatlist");
     } else if (isAuthenticated == false) {
       // redirect to signin
-      router.replace("signIn");
+      router.replace("/(auth)/signIn");
     }
   }, [isAuthenticated]);
 
