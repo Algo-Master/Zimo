@@ -1,14 +1,23 @@
 import { Text } from "react-native"; // Make sure to import Text
-import { Tabs } from "expo-router";
+import { Tabs, usePathname } from "expo-router";
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 export default function AppLayout() {
+    const pathname = usePathname();
+
+  // 1. Define all paths where the tab bar should be visible
+  const visibleTabRoutes = ['/chats/chatlist', '/updates', '/phone'];
+
+  // 2. Check if the current pathname starts with ANY of the paths in the array
+  const isTabBarVisible = visibleTabRoutes.some(route => pathname.startsWith(route));
+
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#494cd6ff",
         tabBarInactiveTintColor: "#8a8bd4ff",
         tabBarStyle: {
+          display: isTabBarVisible ? "flex" : "none",
           height: 100,
           paddingBottom: 10,
           paddingTop: 10,

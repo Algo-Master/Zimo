@@ -10,7 +10,13 @@ export default function ChatLayout() {
           header: () => <ChatListHeader />,
         }}
       />
-      <Stack.Screen name="chatRoom" />
+      <Stack.Screen
+        name="chatRoom"
+        options={{
+          // Hide tabs for chatRoom
+          tabBarStyle: { display: "none" },
+        }}
+      />
     </Stack>
   );
 }
