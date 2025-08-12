@@ -10,12 +10,7 @@ export default function ChatLayout() {
           header: () => <ChatListHeader />,
         }}
       />
-      {/* <Stack.Screen
-        name="chatRoom"
-        options={{
-          headerShown: false,
-        }}
-      /> */}
+      <Stack.Screen name="chatRoom" />
     </Stack>
   );
 }

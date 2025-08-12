@@ -16,7 +16,7 @@ import LottieView from "lottie-react-native";
 import { Feather, Octicons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
 import Loading from "../../components/Loading";
-import ScrollableKeyboardView from "../../components/ScrollableKeyboardView";
+import CustomKeyboardView from "../../components/CustomKeyboardView";
 import { useAuth } from "../../context/authContext";
 
 export default function SignUp() {
@@ -56,7 +56,7 @@ export default function SignUp() {
   };
 
   return (
-    <ScrollableKeyboardView>
+    <CustomKeyboardView>
       <StatusBar style="dark" />
       <View
         style={{ paddingTop: hp(15), paddingHorizontal: wp(5) }}
@@ -186,6 +186,6 @@ export default function SignUp() {
           </View>
         </View>
       </View>
-    </ScrollableKeyboardView>
+    </CustomKeyboardView>
   );
 }

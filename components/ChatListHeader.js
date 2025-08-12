@@ -40,7 +40,7 @@ export default function ChatListHeader() {
       >
         <View>
           <Text style={{ fontSize: hp(3) }} className="font-medium text-white">
-            Chats
+            ZIMO
           </Text>
         </View>
         <View>

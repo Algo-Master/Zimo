@@ -9,7 +9,7 @@ export default function AppLayout() {
         tabBarActiveTintColor: "#494cd6ff",
         tabBarInactiveTintColor: "#8a8bd4ff",
         tabBarStyle: {
-          height: 100, // Or use paddingVertical
+          height: 100,
           paddingBottom: 10,
           paddingTop: 10,
         },
