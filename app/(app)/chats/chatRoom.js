@@ -23,7 +23,8 @@ import {
   onSnapshot,
   orderBy,
   setDoc,
-  Timestamp, query
+  Timestamp,
+  query,
 } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
@@ -107,7 +108,7 @@ export default function ChatRoom() {
       <View className="flex-1 justify-between bg-neutral-100 overflow-visible">
         {/* Background to be fixed */}
         <View className="flex-1">
-          <MessagesList messages={messages} />
+          <MessagesList messages={messages} currentUser={user} />
         </View>
         <KeyboardAvoidingView
           behavior={isIOS ? "padding" : "padding"}

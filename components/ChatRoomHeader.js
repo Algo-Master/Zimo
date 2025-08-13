@@ -34,8 +34,8 @@ export default function ChatRoomHeader({ user, router }) {
         ),
         headerRight: () => (
           <View className="flex-row items-center gap-8">
-            <Feather name="phone-call" size={hp(2.8)} color="#494cd6ff" />
-            <Feather name="video" size={hp(2.8)} color="#494cd6ff" />
+            <Feather name="phone-call" size={hp(2.8)} color="#5d5fffff" />
+            <Feather name="video" size={hp(2.8)} color="#5d5fffff" />
           </View>
         ),
       }}
